@@ -3,22 +3,37 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListComponent } from './list/list.component';
 
-import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+
+
+
+import { ListComponent } from './list/list.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './core/common/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
