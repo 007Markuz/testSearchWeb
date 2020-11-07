@@ -20,14 +20,15 @@ describe('ListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ListComponent],
-      imports: [HttpClientTestingModule,
-
+      imports: [
+        HttpClientTestingModule,
         MatIconModule,
         MatToolbarModule,
         MatCardModule,
         BrowserAnimationsModule,
         MatButtonModule,
-        MatInputModule],
+        MatInputModule
+      ],
       providers: [
         {
           provide: ProductStoreService,
