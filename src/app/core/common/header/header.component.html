@@ -1,9 +1,11 @@
 <mat-toolbar color="primary">
   <span><img src="assets/lider-logo.svg" class="logo-header" ></span>
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input type="text" matInput>
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+  <form class="example-full-width " [formGroup]="registerForm"  >
+  <mat-form-field  class="example-full-width ">
+    <input matInput type="text" formControlName="search" id="search"  >
+    <button mat-button  matSuffix mat-icon-button aria-label="Clear" >
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
   </form>
 </mat-toolbar>
