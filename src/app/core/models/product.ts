@@ -1,14 +1,22 @@
 export class Product {
 
-  constructor({ id, name }: Product){
+  constructor({ id, brand, description, image, price, discount }: Product){
     this.id = id;
-    this.name = name;
+    this.brand = brand;
+    this.description = description;
+    this.image = image;
+    this.price = price;
+    this.discount = discount;
   }
 
 }
 
 export interface Product{
-  id:string;
-  name:string;
+  id: number;
+  brand: string;
+  description: string;
+  image: string;
+  price: number;
+  discount: number;
 }
 

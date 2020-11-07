@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductStoreService } from '../core/service/product-store.service';
 import { Product } from '../core/models/product';
 
@@ -7,19 +7,8 @@ import { Product } from '../core/models/product';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent  {
 
-  products: Array<Product> = [];
-
-  constructor( private productStoreService: ProductStoreService ) {
-
+  constructor( public productService: ProductStoreService ) {
   }
-
-  ngOnInit(): void {
-    this.productStoreService.load();
-    console.log(this.productStoreService.products);
-
-    this.products = this.productStoreService.products;
-  }
-
 }
