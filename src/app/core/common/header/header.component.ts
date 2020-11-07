@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
       switchMap(value => {
         console.log(value);
         const id = Number(value);
-        if ( Number.isInteger(id) || value > 3 ){
+        if ( Number.isInteger(id) || value.length > 3 ){
           this.productService.loadProduct(value);
         }
        return value;
