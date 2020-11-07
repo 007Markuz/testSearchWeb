@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Product } from '../models/product';
+import { ProductsService } from './products.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductStoreService {
+  products: Observable<Product[]> = of([]);
 
-  products: Array<Product> = [];
-  constructor() {
-
+  constructor(private productsService: ProductsService ){
 
   }
-  load() {
-    this.products.push(new Product({id: '1', name: 'uno'}));
-    this.products.push(new Product({id: '2', name: 'dos'}));
-    this.products.push(new Product({id: '3', name: 'tres'}));
+
+  loadProduct(key){
+    this.productsService.load(key).subscribe((productsResponse) => {
+
+      this.products = of(productsResponse.products);
+
+    });
   }
+
 }
