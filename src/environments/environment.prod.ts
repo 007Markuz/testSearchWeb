@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  serviceUrl: 'https://test-search-service.herokuapp.com/products'
 };
