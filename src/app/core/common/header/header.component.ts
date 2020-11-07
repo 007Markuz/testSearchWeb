@@ -15,11 +15,11 @@ export class HeaderComponent implements OnInit {
   constructor(fb: FormBuilder, private productService: ProductStoreService) {
     this.registerForm = fb.group({search: ['']});
    }
+
    ngOnInit(): void {
      this.registerForm.controls['search'].valueChanges.pipe(
       debounceTime(500),
       switchMap(value => {
-        console.log(value);
         const id = Number(value);
         if ( Number.isInteger(id) || value.length > 2 ){
           this.productService.loadProduct(value);

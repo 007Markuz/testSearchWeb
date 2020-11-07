@@ -4,6 +4,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {  of, Observable, throwError } from 'rxjs';
 import { ProductsService } from './products.service';
 import { HttpClient} from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
+
+
 
 describe('ProductsService', () => {
   let service: ProductsService;
@@ -15,12 +18,13 @@ describe('ProductsService', () => {
         ProductsService,
         {provide: HttpClient,
         useFactory(){
-          return { get(key){
-            if (key === 'http://localhost:8080/products?key=error'){
+          return { get(key,header){
+
+            if( key === `${environment.serviceUrl}?key=error`){
               return throwError({status: 500, message: 'error'});
             }
-            if(key === 'http://localhost:8080/products?key=ErrorEvent'){
-              return throwError({error: new ErrorEvent('type',{message:'ErrorEvent'} ) });
+            if( key === `${environment.serviceUrl}?key=ErrorEvent`){
+              return throwError({error: new ErrorEvent('type',{ message: 'ErrorEvent'} ) });
             }
             return of();
 
@@ -52,5 +56,4 @@ describe('ProductsService', () => {
       done();
     });
   });
-
 });
