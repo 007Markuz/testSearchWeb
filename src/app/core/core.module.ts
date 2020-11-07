@@ -5,8 +5,6 @@ import { Product } from './models/product';
 import { HeaderComponent } from './common/header/header.component';
 
 
-
-
 @NgModule({
   declarations: [HeaderComponent],
   imports: [

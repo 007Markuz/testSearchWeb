@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,11 +11,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {LayoutModule} from '@angular/cdk/layout';
 
 
 import { ListComponent } from './list/list.component';
-import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './core/common/header/header.component';
 
 
@@ -22,7 +23,6 @@ import { HeaderComponent } from './core/common/header/header.component';
   declarations: [
     AppComponent,
     ListComponent,
-    HomeComponent,
     HeaderComponent
   ],
   imports: [
@@ -33,7 +33,11 @@ import { HeaderComponent } from './core/common/header/header.component';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule,
+    FormsModule,
+    LayoutModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
