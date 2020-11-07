@@ -1,16 +1,34 @@
-import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
-
+import { browser, logging, element, by } from 'protractor';
+import {  of } from 'rxjs';
 describe('workspace-project App', () => {
-  let page: AppPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    browser.get('/');
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('testSearchWeb app is running!');
+  it('should display the icon search in the header', () => {
+    expect(element(by.css('.mat-icon')).getText()).toContain('search');
+    expect(element(by.css('.mat-card')).isPresent()).toBe(false);
+  });
+
+  it('there should be no product cards', () => {
+    expect(element(by.css('.mat-card')).isPresent()).toBe(false);
+  });
+
+  it('there should have one product cards', (done) => {
+    element(by.id('search')).sendKeys('2');
+    browser.sleep(1000).then(function(){
+      expect(element(by.css('.mat-card')).isPresent()).toBe(true);
+      done();
+    });
+  });
+
+  it('there should have one product cards', (done) => {
+    element(by.id('search')).sendKeys('dsaasd');
+    browser.sleep(1000).then(function(){
+      expect(element(by.css('.mat-card')).isPresent()).toBe(true);
+      done();
+    });
   });
 
   afterEach(async () => {
