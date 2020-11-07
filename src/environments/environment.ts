@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serviceUrl: 'http://localhost:8080/products'
+  serviceUrl: 'https://test-search-service.herokuapp.com/products'
 };
 
 /*
