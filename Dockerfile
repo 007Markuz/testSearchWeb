@@ -1,15 +1,7 @@
-FROM node:10-alpine
+FROM nginx:alpine
 
-# Create app directory
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
-RUN npm install
-
-COPY ./dist ./dist
-
-RUN ls -sla
+COPY ./dist/testSearchWeb /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
-CMD [ "node", "server.js" ]
+#CMD npm start
